@@ -3,20 +3,6 @@
 
 (goog-define version "0.1.0")
 
-(defn menu-button
-  []
-  [:div {:class "button naked huge"
-         :on-click #(re-frame/dispatch [:toggle-menu])}
-   [:i {:class :icon-th}]])
-
-
-(defn cv-button
-  []
-  [:section {:class :CV}
-   [:a {:href "http://dl.lxsameer.com/CV/SameerRahmani.pdf" :class "button default large"}
-    "Download My CV"]])
-
-
 (defn menu-items
   []
   [:section {:class "row menu"}
@@ -55,17 +41,6 @@
     [:a {:class "default button" :href "#"}
      [:i {:class :icon-rss}]
      "Archive"]]
-
-   [:span {:class :col-xs-4}
-    [:a {:class "button default"
-         :href "https://twitter.com/lxsameer"}
-     [:i {:class :icon-twitter}]
-     "Twitter"]]
-   [:span {:class :col-xs-4}
-    [:a {:class "button default"
-         :href "https://github.com/lxsameer"}
-     [:i {:class :icon-github}]
-     "Github"]]
    [:span {:class :col-xs-4}
     [:a {:class "button default"
          :href "https://www.linkedin.com/in/lxsameer/"}
@@ -86,16 +61,33 @@
 (defn name-and-title
   [menu]
   [:section {:class "title-header"}
-   [:img {:src "images/me-1.jpg" :class :avatar :alt "Sameer Rahmani (@lxsameer) avatar"}]
+   [:img {:src "images/logo.png" :class :avatar :alt "Codamic"}]
    [:span {:class :no-wrap}
-    [menu-button]
-    [:span {:class "title"} "Sameer" [:span {:class "last-name"} "Rahmani"]]]
-   [:h2 {:class "subtitle"} "Senior Software Engineer"]
 
-   (if (not menu)
-     [cv-button]
-     [menu-items])
-   [:span {:class :copyright} (str "© 2010-2017 Sameer Rahmani - " version)]])
+    [:span {:class "title"}
+     [:span {:class "codamic"} "Codamic"]
+     "Technologies"]]
+   [:h2 {:class "subtitle"} "We are rising..."]
+
+   [:div {:class "row social"}
+    [:ul
+     [:li {:class :col-xs-4}
+      [:a {:class "button circle success large"
+           :href "https://twitter.com/CodamicTech"}
+       [:i {:class :icon-twitter}]]]
+
+     [:li {:class :col-xs-4}
+      [:a {:class "button circle success large"
+           :href "https://github.com/Codamic"}
+       [:i {:class :icon-github}]]]
+
+     [:li {:class :col-xs-4}
+      [:a {:class "button circle success large"
+           :href "https://blog.codamic.tech/"}
+       [:i {:class :icon-medium}]]]]]
+
+
+   [:span {:class :copyright} (str "© 2016-2017 Codamic Technologies - " version)]])
 
 
 (defn home-panel []
